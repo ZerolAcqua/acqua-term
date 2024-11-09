@@ -1,21 +1,17 @@
-// app/page.tsx
-"use client";
-
-import React from "react";
 import Head from "next/head";
-import config from "root/config.json";
-import { Input } from "@/components/input";
-import { useHistory } from "@/components/history/hook";
-import { History } from "@/components/history/History";
-import { banner } from "@/utils/bin";
+import React from "react";
+import config from "../../config.json";
+import { Input } from "../components/input";
+import { useHistory } from "../components/history/hook";
+import { History } from "../components/history/History";
+import { banner } from "../utils/bin";
 
-interface PageProps {
-  inputRef?: React.MutableRefObject<HTMLInputElement>;
+interface IndexPageProps {
+  inputRef: React.MutableRefObject<HTMLInputElement>;
 }
 
-const Page: React.FC<PageProps> = ({ inputRef }) => {
+const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
   const containerRef = React.useRef(null);
-  const internalInputRef = React.useRef<HTMLInputElement>(null);
   const {
     history,
     command,
@@ -33,12 +29,11 @@ const Page: React.FC<PageProps> = ({ inputRef }) => {
   }, [init]);
 
   React.useEffect(() => {
-    const ref = inputRef || internalInputRef;
-    if (ref.current) {
-      ref.current.scrollIntoView();
-      ref.current.focus({ preventScroll: true });
+    if (inputRef.current) {
+      inputRef.current.scrollIntoView();
+      inputRef.current.focus({ preventScroll: true });
     }
-  }, [history, inputRef]);
+  }, [history]);
 
   return (
     <>
@@ -51,7 +46,7 @@ const Page: React.FC<PageProps> = ({ inputRef }) => {
           <History history={history} />
 
           <Input
-            inputRef={inputRef || internalInputRef}
+            inputRef={inputRef}
             containerRef={containerRef}
             command={command}
             history={history}
@@ -67,4 +62,4 @@ const Page: React.FC<PageProps> = ({ inputRef }) => {
   );
 };
 
-export default Page;
+export default IndexPage;

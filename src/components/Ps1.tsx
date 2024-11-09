@@ -1,7 +1,7 @@
 import React from "react";
-import config from "root/config.json";
+import config from "../../config.json";
 
-export const Ps1 = () => {
+export const Ps1: React.FC = () => {
   return (
     <div>
       <span className="text-light-yellow dark:text-dark-yellow">
