@@ -1,7 +1,8 @@
 import React from "react";
-import "../styles/global.css";
+
 import Head from "next/head";
 import localFont from "next/font/local";
+import "@/styles/global.css";
 
 // Font files can be colocated inside of `pages`
 const hack = localFont({
@@ -9,11 +10,13 @@ const hack = localFont({
   fallback: ["monospace"],
 });
 
-const App = ({ Component, pageProps }) => {
+import type { AppProps } from "next/app";
+
+const App = ({ Component, pageProps }: AppProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const onClickAnywhere = () => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   return (
