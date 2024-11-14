@@ -1,6 +1,7 @@
+import { Command } from './interface';
 import config from '../../../config.json';
 
-const sumfetch = async (args: string[]): Promise<string> => {
+const sumfetch: Command = async () => {
   return `
    sumfetch
   -----------

@@ -22,6 +22,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
     setLastCommandIndex,
   } = useHistory([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const init = React.useCallback(() => setHistory(banner()), []);
 
   React.useEffect(() => {
@@ -33,6 +34,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
       inputRef.current.scrollIntoView();
       inputRef.current.focus({ preventScroll: true });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history]);
 
   return (

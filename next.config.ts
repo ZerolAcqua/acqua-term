@@ -20,12 +20,6 @@ const nextConfig: NextConfig = {
   env: {
     BASE_PATH: basePath,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  }
 };
 
 export default nextConfig;

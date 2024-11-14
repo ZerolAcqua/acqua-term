@@ -3,8 +3,21 @@ import { commandExists } from "@/utils/commandExists";
 import { shell } from "@/utils/shell";
 import { handleTabCompletion } from "@/utils/tabCompletion";
 import { Ps1 } from "./Ps1";
+import { History as HistoryInterface } from "./history/interface";
 
-export const Input = ({
+interface InputProps {
+  inputRef: React.RefObject<HTMLInputElement>;
+  containerRef: React.RefObject<HTMLDivElement>;
+  command: string;
+  history: HistoryInterface[];
+  lastCommandIndex: number;
+  setCommand: React.Dispatch<React.SetStateAction<string>>;
+  setHistory: (value: string) => void;
+  setLastCommandIndex: React.Dispatch<React.SetStateAction<number>>;
+  clearHistory: () => void;
+}
+
+export const Input: React.FC<InputProps> = ({
   inputRef,
   containerRef,
   command,
@@ -16,7 +29,7 @@ export const Input = ({
   clearHistory,
 }) => {
   const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const commands: [string] = history
+    const commands: string[] = history
       .map(({ command }) => command)
       .filter((command: string) => command);
 
@@ -41,7 +54,9 @@ export const Input = ({
       event.preventDefault();
       setLastCommandIndex(0);
       await shell(command, setHistory, clearHistory, setCommand);
-      containerRef.current.scrollTo(0, containerRef.current.scrollHeight);
+      if (containerRef.current) {
+        containerRef.current.scrollTo(0, containerRef.current.scrollHeight);
+      }
     }
 
     if (event.key === "ArrowUp") {
