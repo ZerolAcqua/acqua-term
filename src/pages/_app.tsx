@@ -28,7 +28,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           key="viewport"
           maximum-scale="1"
         />
-        <link rel="icon" href={`${process.env.BASE_PATH}/favicon.ico`} />
+        <link rel="icon" href={`${process.env.BASE_PATH || ""}/favicon.ico`} />
       </Head>
 
       <div

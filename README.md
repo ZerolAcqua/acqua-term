@@ -1,10 +1,16 @@
 # AcquaTerm
 
 > this repo is forked from [Cveinnt/LiveTerm](https://github.com/Cveinnt/LiveTerm).
+> You can customize your own terminal styled website on the original project.
+>
 > the original [license](./src/LICENSE) is here.
-> You can customize your own terminal styled website.
 
-I upgraded the original project to newer version of React and Next.js. And I may switch to app router in the future.
+I use this repo to learn `next.js` and `react`.
+
+- [x] upgrade the version of React and Next.js
+- [x] set basePath for my production environment
+- [ ] switch to app router
+- [ ] auto deploy to github page by github action
 
 If you want to try this repo, simply clone it and run `npm install` and `npm run dev`.
 
