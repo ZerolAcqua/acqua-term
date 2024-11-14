@@ -9,8 +9,8 @@ I use this repo to learn `next.js` and `react`.
 
 - [x] upgrade the version of React and Next.js
 - [x] set basePath for my production environment
+- [x] auto deploy to github page by github action
 - [ ] switch to app router
-- [ ] auto deploy to github page by github action
 
 If you want to try this repo, simply clone it and run `npm install` and `npm run dev`.
 
