@@ -15,7 +15,7 @@ I use this repo to learn `next.js` and `react`. And I make some changes as follo
 - [x] auto deploy to github page by github action
 - [ ] switch to app router
 
-If you want to try this repo, simply clone it and run `npm install` and `npm run dev`.
+If you want to try this repo, simply clone it and run `npm install` and `npm run dev` (my node version is `v20.18.0`).
 
 ## Credit
 
