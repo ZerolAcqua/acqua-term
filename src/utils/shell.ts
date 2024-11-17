@@ -1,6 +1,5 @@
 import React from 'react';
-import * as bin from './bin';
-import type { Commands } from './bin/interface';
+import { commandList } from './bin';
 
 export const shell = async (
   command: string,
@@ -15,12 +14,12 @@ export const shell = async (
     clearHistory();
   } else if (command === '') {
     setHistory('');
-  } else if (Object.keys(bin).indexOf(args[0]) === -1) {
+  } else if (Object.keys(commandList).indexOf(args[0]) === -1) {
     setHistory(
       `shell: command not found: ${args[0]}. Try 'help' to get started.`,
     );
   } else {
-    const output = await (bin as unknown as Commands)[args[0]](args.slice(1));
+    const output = await commandList[args[0]](args.slice(1));
     setHistory(output);
   }
 

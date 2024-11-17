@@ -1,17 +1,17 @@
 // List of commands that do not require API calls
 
 import { Command } from './interface';
-import * as bin from './index';
-import config from '../../../config.json';
+import { commandList } from './index';
+import config from '_/config.json';
 
 // Help
 export const help: Command = async () => {
   let c = '';
-  for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
+  for (let i = 1; i <= Object.keys(commandList).sort().length; i++) {
     if (i % 7 === 0) {
-      c += Object.keys(bin).sort()[i - 1] + '\n';
+      c += Object.keys(commandList).sort()[i - 1] + '\n';
     } else {
-      c += Object.keys(bin).sort()[i - 1] + ' ';
+      c += Object.keys(commandList).sort()[i - 1] + ' ';
     }
   }
   return `Welcome! Here are all the available commands:

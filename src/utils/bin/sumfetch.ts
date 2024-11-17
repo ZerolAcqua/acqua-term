@@ -1,5 +1,5 @@
 import { Command } from './interface';
-import config from '../../../config.json';
+import config from '_/config.json';
 
 const sumfetch: Command = async () => {
   return `
