@@ -1,10 +1,12 @@
-// // List of commands that require API calls
+/**
+ * List of commands that require API calls
+ */
 
-import { Command } from './interface';
 import { getProjects } from '../api';
 import { getReadme } from '../api';
 import { getWeather } from '../api';
-// import { getQuote } from '../api';
+
+import { Command } from './interface';
 
 export const projects: Command = async () => {
   const projects = await getProjects();
@@ -30,8 +32,3 @@ export const weather: Command = async (args) => {
   const weather = await getWeather(city);
   return weather;
 };
-
-// export const quote: Command = async () => {
-//   const data = await getQuote();
-//   return data.quote;
-// };

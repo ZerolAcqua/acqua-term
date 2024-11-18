@@ -1,4 +1,7 @@
-// List of commands that do not require API calls
+/**
+ * List of commands that do not require API calls
+ */
+
 
 import { Command } from './interface';
 import { commandList } from './index';
@@ -62,12 +65,6 @@ export const github: Command = async () => {
   return 'Opening github...';
 };
 
-// export const linkedin: Command = async () => {
-//   window.open(`https://www.linkedin.com/in/${config.social.linkedin}/`);
-
-//   return 'Opening linkedin...';
-// };
-
 // Search
 export const google: Command = async (args) => {
   window.open(`https://google.com/search?q=${args.join(' ')}`);
@@ -98,37 +95,8 @@ export const whoami: Command = async () => {
   return `${config.ps1_username}`;
 };
 
-// export const ls: Command = async () => {
-//   return `a
-// bunch
-// of
-// fake
-// directories`;
-// };
-
-// export const cd: Command = async () => {
-//   return `unfortunately, i cannot afford more directories.
-// if you want to help, you can type 'donate'.`;
-// };
-
 export const date: Command = async () => {
   return new Date().toString();
-};
-
-export const vi: Command = async () => {
-  return `woah, you still use 'vi'? just try 'vim'.`;
-};
-
-export const vim: Command = async () => {
-  return `'vim' is so outdated. how about 'nvim'?`;
-};
-
-export const nvim: Command = async () => {
-  return `'nvim'? too fancy. why not 'emacs'?`;
-};
-
-export const emacs: Command = async () => {
-  return `you know what? just use vscode.`;
 };
 
 export const sudo: Command = async () => {
@@ -145,6 +113,23 @@ export const sudo: Command = async () => {
   return `Permission denied: with little power comes... no responsibility? `;
 };
 
+// sumfetch
+export const sumfetch: Command = async () => {
+  return `
+   sumfetch
+  -----------
+   ABOUT
+   ${config.name}
+   <u><a href="${config.resume_url}" target="_blank">resume</a></u>
+  爵 <u><a href="${config.repo}" target="_blank">Github repo</a></u>
+  -----------
+   CONTACT 
+   <u><a href="mailto:${config.email}" target="_blank">${config.email}</a></u>
+   <u><a href="https://github.com/${config.social.github}" target="_blank">github.com/${config.social.github}</a></u>
+  
+`;
+};
+
 // Banner
 export const banner = (): string => {
   return `
@@ -159,10 +144,4 @@ Type 'help' to see the list of available commands.
 Type 'sumfetch' to display summary.
 Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
 `;
-};
-
-// my custom commands
-export const acqua: Command = async () => {
-  return `Acqua is the cutest pony!
-  <img src="https://cdn.zerolacqua.top/images/acqua_qrcode.png" alt="Acqua" width="200" height="200">`;
 };

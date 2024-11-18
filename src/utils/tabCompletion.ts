@@ -4,7 +4,7 @@ export const handleTabCompletion = (
   command: string,
   setCommand: React.Dispatch<React.SetStateAction<string>>,
 ) => {
-  const commands = Object.keys(commandList).filter((entry) =>
+  const commands = ['clear', ...Object.keys(commandList)].filter((entry) =>
     entry.startsWith(command),
   );
 

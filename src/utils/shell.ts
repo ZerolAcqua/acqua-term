@@ -1,5 +1,5 @@
 import React from 'react';
-import { commandList } from './bin';
+import { allCommandList as commandList } from './bin';
 
 export const shell = async (
   command: string,
