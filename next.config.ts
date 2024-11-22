@@ -20,7 +20,9 @@ const nextConfig: NextConfig = {
   env: {
     BASE_PATH: basePath,
   },
-  removeConsole: isProd ? { exclude: ['error'] } : false,
+  compiler: {
+    removeConsole: isProd ? { exclude: ['error'] } : false,
+  },
 };
 
 export default nextConfig;
